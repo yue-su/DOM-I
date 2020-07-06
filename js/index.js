@@ -44,12 +44,15 @@ logo.setAttribute('src', siteContent["nav"]["img-src"])
 // adding contents to the nav links 
 let navItems = document.querySelectorAll('nav a')
 for (let i = 0; i < 6; i++) {
-  navItems[i].textContent = siteContent['nav'][`nav-item-${i+1}`]
+  navItems[i].textContent = siteContent['nav'][`nav-item-${i + 1}`]
+  //changing the color to green
+  navItems[i].style.color = 'green'
 }
+
 
 //adding content to the cta title h1 element
 let ctaTitle = document.querySelector('h1')
-var x = document.createElement("BR");
+
 ctaTitle.textContent = siteContent['cta']['h1'].split(' ').join('\n')
 
 //adding content to the button
@@ -90,3 +93,16 @@ contactText[2].textContent = siteContent['contact']['email']
 //footer p
 let footerText = document.querySelector('footer p')
 footerText.textContent = siteContent['footer']['copyright']
+
+//adding two nav items
+let navHome = document.createElement('a')
+navHome.style.color = 'green'
+navHome.textContent = 'Home'
+
+let navApp = document.createElement('a')
+navApp.style.color = 'green'
+navApp.textContent = 'App'
+
+let navContainer = document.querySelector('nav')
+navContainer.prepend(navHome)
+navContainer.appendChild(navApp)
