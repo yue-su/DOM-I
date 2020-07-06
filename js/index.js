@@ -40,3 +40,44 @@ const siteContent = {
 // Example: Update the img src for the logo
 let logo = document.getElementById("logo-img");
 logo.setAttribute('src', siteContent["nav"]["img-src"])
+
+// adding contents to the nav links 
+let navItems = document.querySelectorAll('nav a')
+for (let i = 0; i < 6; i++) {
+  navItems[i].textContent = siteContent['nav'][`nav-item-${i+1}`]
+}
+
+//adding content to the cta title h1 element
+let ctaTitle = document.querySelector('h1')
+var x = document.createElement("BR");
+ctaTitle.textContent = siteContent['cta']['h1'].split(' ').join('\n')
+
+//adding content to the button
+let ctaButton = document.querySelector('button')
+ctaButton.textContent = siteContent['cta']['button']
+
+//adding src attribute to the image
+let ctaImg = document.querySelector('#cta-img')
+ctaImg.setAttribute('src', siteContent['cta']['img-src'])
+
+//h4
+let contentTitle = document.querySelectorAll('h4')
+contentTitle[0].textContent = siteContent['main-content']['features-h4']
+contentTitle[1].textContent = siteContent['main-content']['about-h4']
+contentTitle[2].textContent = siteContent['main-content']['services-h4']
+contentTitle[3].textContent = siteContent['main-content']['product-h4']
+contentTitle[4].textContent = siteContent['main-content']['vision-h4']
+contentTitle[5].textContent = siteContent['contact']['contact-h4']
+
+//content p
+let contentText = document.querySelectorAll('.main-content p')
+contentText[0].textContent = siteContent['main-content']['features-content']
+contentText[1].textContent = siteContent['main-content']['about-content']
+contentText[2].textContent = siteContent['main-content']['services-content']
+contentText[3].textContent = siteContent['main-content']['product-content']
+contentText[4].textContent = siteContent['main-content']['vision-content']
+
+//middle img
+let contentImg = document.querySelector('#middle-img')
+contentImg.setAttribute('src', siteContent['main-content']['middle-img-src'])
+
