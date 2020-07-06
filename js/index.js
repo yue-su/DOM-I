@@ -81,3 +81,12 @@ contentText[4].textContent = siteContent['main-content']['vision-content']
 let contentImg = document.querySelector('#middle-img')
 contentImg.setAttribute('src', siteContent['main-content']['middle-img-src'])
 
+//contact p
+let contactText = document.querySelectorAll('.contact p')
+contactText[0].textContent = siteContent['contact']['address']
+contactText[1].textContent = siteContent['contact']['phone']
+contactText[2].textContent = siteContent['contact']['email']
+
+//footer p
+let footerText = document.querySelector('footer p')
+footerText.textContent = siteContent['footer']['copyright']
