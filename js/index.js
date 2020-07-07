@@ -53,7 +53,7 @@ for (let i = 0; i < 6; i++) {
 //adding content to the cta title h1 element
 let ctaTitle = document.querySelector('h1')
 // ctaTitle.textContent = siteContent['cta']['h1'].split(' ').join('\n')
-ctaTitle.innerHTML = `${siteContent['cta']['h1'].split(' ')[0]}<br>${siteContent['cta']['h1'].split(' ')[1]}<br>${siteContent['cta']['h1'].split(' ')[2]}`                 
+ctaTitle.innerHTML = `${siteContent['cta']['h1'].split(' ')[0]}<br> ${siteContent['cta']['h1'].split(' ')[1]}<br> ${siteContent['cta']['h1'].split(' ')[2]}`                 
 
 //adding content to the button
 let ctaButton = document.querySelector('button')
@@ -107,4 +107,22 @@ let navContainer = document.querySelector('nav')
 navContainer.prepend(navHome)
 navContainer.appendChild(navApp)
 
-console.log(document)
+//stretch 
+//adding two buttons to manipulate the font-size
+let btn = document.createElement('button')
+btn.textContent = 'Increase Font Size'
+let btnReset = document.createElement('button')
+btnReset.textContent = 'Reset Font Size'
+
+let ctaText = document.querySelector('.cta-text')
+ctaText.appendChild(btn)
+btn.addEventListener('click', (event) => {
+  ctaTitle.style.fontSize = '150%'
+  contentText.forEach((item) => item.style.fontSize = '150%')
+})
+
+ctaText.appendChild(btnReset)
+btnReset.addEventListener('click', (event) => {
+  ctaTitle.style.fontSize = '100%'
+  contentText.forEach((item) => item.style.fontSize = '100%')
+})
