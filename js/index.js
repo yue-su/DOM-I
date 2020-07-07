@@ -40,3 +40,90 @@ const siteContent = {
 // Example: Update the img src for the logo
 let logo = document.getElementById("logo-img");
 logo.setAttribute('src', siteContent["nav"]["img-src"])
+
+// adding contents to the nav links 
+let navItems = document.querySelectorAll('nav a')
+for (let i = 0; i < 6; i++) {
+  navItems[i].textContent = siteContent['nav'][`nav-item-${i + 1}`]
+  //changing the color to green
+  navItems[i].style.color = 'green'
+}
+
+
+//adding content to the cta title h1 element
+let ctaTitle = document.querySelector('h1')
+//adding <br> by using innerHTML instead of textContent
+ctaTitle.innerHTML = `${siteContent['cta']['h1'].split(' ')[0]}<br> ${siteContent['cta']['h1'].split(' ')[1]}<br> ${siteContent['cta']['h1'].split(' ')[2]}`                 
+
+//adding content to the button
+let ctaButton = document.querySelector('button')
+ctaButton.textContent = siteContent['cta']['button']
+
+//adding src attribute to the image
+let ctaImg = document.querySelector('#cta-img')
+ctaImg.setAttribute('src', siteContent['cta']['img-src'])
+
+//h4
+let contentTitle = document.querySelectorAll('h4')
+contentTitle[0].textContent = siteContent['main-content']['features-h4']
+contentTitle[1].textContent = siteContent['main-content']['about-h4']
+contentTitle[2].textContent = siteContent['main-content']['services-h4']
+contentTitle[3].textContent = siteContent['main-content']['product-h4']
+contentTitle[4].textContent = siteContent['main-content']['vision-h4']
+contentTitle[5].textContent = siteContent['contact']['contact-h4']
+
+//content p
+let contentText = document.querySelectorAll('.main-content p')
+contentText[0].textContent = siteContent['main-content']['features-content']
+contentText[1].textContent = siteContent['main-content']['about-content']
+contentText[2].textContent = siteContent['main-content']['services-content']
+contentText[3].textContent = siteContent['main-content']['product-content']
+contentText[4].textContent = siteContent['main-content']['vision-content']
+
+//middle img
+let contentImg = document.querySelector('#middle-img')
+contentImg.setAttribute('src', siteContent['main-content']['middle-img-src'])
+
+//contact p
+let contactText = document.querySelectorAll('.contact p')
+//adding break <br> by spliting the string into two substr 
+contactText[0].innerHTML = `${siteContent['contact']['address'].substr(0, 19)}<br>${siteContent['contact']['address'].substr(19)}`
+contactText[1].textContent = siteContent['contact']['phone']
+contactText[2].textContent = siteContent['contact']['email']
+
+//footer p
+let footerText = document.querySelector('footer p')
+footerText.textContent = siteContent['footer']['copyright']
+
+//adding two nav items
+let navHome = document.createElement('a')
+navHome.style.color = 'green'
+navHome.textContent = 'Home'
+
+let navApp = document.createElement('a')
+navApp.style.color = 'green'
+navApp.textContent = 'App'
+
+let navContainer = document.querySelector('nav')
+navContainer.prepend(navHome)
+navContainer.appendChild(navApp)
+
+//stretch 
+//adding two buttons to manipulate the font-size
+let btn = document.createElement('button')
+btn.textContent = 'Increase Font Size'
+let btnReset = document.createElement('button')
+btnReset.textContent = 'Reset Font Size'
+
+let ctaText = document.querySelector('.cta-text')
+ctaText.appendChild(btn)
+btn.addEventListener('click', (event) => {
+  ctaTitle.style.fontSize = '150%'
+  contentText.forEach((item) => item.style.fontSize = '150%')
+})
+
+ctaText.appendChild(btnReset)
+btnReset.addEventListener('click', (event) => {
+  ctaTitle.style.fontSize = '100%'
+  contentText.forEach((item) => item.style.fontSize = '100%')
+})
