@@ -52,7 +52,7 @@ for (let i = 0; i < 6; i++) {
 
 //adding content to the cta title h1 element
 let ctaTitle = document.querySelector('h1')
-// ctaTitle.textContent = siteContent['cta']['h1'].split(' ').join('\n')
+//adding <br> by using innerHTML instead of textContent
 ctaTitle.innerHTML = `${siteContent['cta']['h1'].split(' ')[0]}<br> ${siteContent['cta']['h1'].split(' ')[1]}<br> ${siteContent['cta']['h1'].split(' ')[2]}`                 
 
 //adding content to the button
@@ -86,6 +86,7 @@ contentImg.setAttribute('src', siteContent['main-content']['middle-img-src'])
 
 //contact p
 let contactText = document.querySelectorAll('.contact p')
+//adding break <br> by spliting the string into two substr 
 contactText[0].innerHTML = `${siteContent['contact']['address'].substr(0, 19)}<br>${siteContent['contact']['address'].substr(19)}`
 contactText[1].textContent = siteContent['contact']['phone']
 contactText[2].textContent = siteContent['contact']['email']
